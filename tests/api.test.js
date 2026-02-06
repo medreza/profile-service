@@ -33,7 +33,6 @@ describe('API Tests', () => {
             });
         expect(res.statusCode).toEqual(201);
         expect(res.body.name).toEqual('Test Profile');
-        profileId = res.body.id;
     });
 
     test('POST /profiles should fail when invalid MBTI is provided', async () => {
@@ -139,6 +138,7 @@ describe('API Tests', () => {
         expect(res.body.sloan).toEqual('RCOEI');
         expect(res.body.psyche).toEqual('LVEF');
         expect(res.body.temperaments).toEqual('Phlegmatic');
+        profileId = res.body.id;
     });
 
     test('POST /profiles should create profile with only required fields', async () => {
@@ -175,10 +175,18 @@ describe('API Tests', () => {
         expect(res.body.zodiac).toBeUndefined();
     });
 
-    test('GET /profiles/:id should return profile template', async () => {
+    test('GET /profiles/:id should return profile template with profile attributes', async () => {
         const res = await request(app).get(`/profiles/${profileId}`);
         expect(res.statusCode).toEqual(200);
-        expect(res.text).toContain('Test Profile');
+        expect(res.text).toContain('Full Profile');
+        expect(res.text).toContain('Profile with all attributes');
+        expect(res.text).toContain('INTJ');
+        expect(res.text).toContain('5w6');
+        expect(res.text).toContain('sp/sx');
+        expect(res.text).toContain('ILI');
+        expect(res.text).toContain('RCOEI');
+        expect(res.text).toContain('LVEF');
+        expect(res.text).toContain('Phlegmatic');
     });
 
     test('POST /users should create a new user', async () => {
