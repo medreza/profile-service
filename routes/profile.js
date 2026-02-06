@@ -25,6 +25,20 @@ module.exports = function () {
    *                 type: string
    *               enneagram:
    *                 type: string
+   *               zodiac:
+   *                 type: string
+   *               variant:
+   *                 type: string
+   *               tritype:
+   *                 type: number
+   *               socionics:
+   *                 type: string
+   *               sloan:
+   *                 type: string
+   *               psyche:
+   *                 type: string
+   *               temperaments:
+   *                 type: string
    *     responses:
    *       201:
    *         description: Profile created successfully

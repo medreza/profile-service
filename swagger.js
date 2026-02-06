@@ -25,11 +25,13 @@ const options = {
                         description: { type: 'string' },
                         mbti: { type: 'string' },
                         enneagram: { type: 'string' },
+                        zodiac: { type: 'string' },
                         variant: { type: 'string' },
                         tritype: { type: 'number' },
                         socionics: { type: 'string' },
                         sloan: { type: 'string' },
                         psyche: { type: 'string' },
+                        temperaments: { type: 'string' },
                         image: { type: 'string' },
                         createdAt: { type: 'string', format: 'date-time' },
                         updatedAt: { type: 'string', format: 'date-time' }
